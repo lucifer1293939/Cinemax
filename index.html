@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090909">
+  <title>CINEMAX — Your Cinema. Your Collection.</title>
+  <style>
+    :root{--gold:#d6b15e;--bg:#090909;--panel:#151515;--muted:#aaa}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:#f5f1e8;font-family:Arial,Helvetica,sans-serif}
+    header{padding:28px 6%;border-bottom:1px solid #29231a;background:linear-gradient(120deg,#15120b,#090909 65%)}
+    .brand{font-size:13px;letter-spacing:5px;color:var(--gold);font-weight:bold}
+    h1{font-size:clamp(30px,6vw,56px);margin:18px 0 8px;letter-spacing:1px}
+    h1 span{color:var(--gold)}
+    header p{color:var(--muted);margin:0}
+    main{max-width:1100px;margin:auto;padding:30px 6% 70px}
+    .toolbar{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0 28px}
+    input,select,button{font:inherit;border-radius:8px;padding:13px 15px}
+    input,select{background:#171717;border:1px solid #38332a;color:#fff;min-width:0}
+    #search{flex:1;min-width:180px}
+    button{border:0;background:var(--gold);color:#17120a;font-weight:bold;cursor:pointer}
+    button:hover{filter:brightness(1.08)}
+    .notice{border:1px solid #4a3b1e;background:#17140e;color:#d9c89e;padding:15px;border-radius:10px;line-height:1.5}
+    .section-title{display:flex;align-items:center;justify-content:space-between;margin:28px 0 16px}
+    .section-title h2{font-size:20px;margin:0}
+    #count{color:var(--muted);font-size:13px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:18px}
+    .movie{background:var(--panel);border:1px solid #292929;border-radius:10px;overflow:hidden}
+    .poster{height:220px;background:linear-gradient(145deg,#282116,#101010);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:38px}
+    .poster img{width:100%;height:100%;object-fit:cover}
+    .movie-info{padding:12px}
+    .movie-info h3{font-size:15px;margin:0 0 6px;overflow-wrap:anywhere}
+    .movie-info p{font-size:12px;color:var(--muted);margin:0 0 12px}
+    .empty{grid-column:1/-1;text-align:center;padding:55px 15px;border:1px dashed #39332a;border-radius:10px;color:var(--muted)}
+    footer{text-align:center;padding:24px;color:#777;border-top:1px solid #252525;font-size:12px;letter-spacing:2px}
+    .small{font-size:12px;color:#888;line-height:1.5;margin-top:12px}
+    @media(max-width:480px){header{padding-top:24px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.poster{height:190px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">CINEMAX</div>
+    <h1>YOUR CINEMA.<br><span>YOUR COLLECTION.</span></h1>
+    <p>A personal home for your movie collection.</p>
+  </header>
+  <main>
+    <div class="toolbar">
+      <input id="search" type="search" placeholder="Search movies..." aria-label="Search movies">
+      <select id="genre" aria-label="Filter by genre">
+        <option value="">All genres</option>
+        <option>Action</option><option>Adventure</option><option>Comedy</option>
+        <option>Drama</option><option>Horror</option><option>Sci-Fi</option>
+        <option>Thriller</option><option>Other</option>
+      </select>
+    </div>
+    <div class="notice">
+      <strong>Website setup in progress</strong><br>
+      This is your CINEMAX website homepage. The public movie library and download feature will be connected to cloud storage in the next setup step.
+    </div>
+    <div class="section-title">
+      <h2>Movie Collection</h2>
+      <span id="count">0 movies</span>
+    </div>
+    <section class="grid" id="movies">
+      <div class="empty">Your movie collection will appear here after cloud storage is connected.</div>
+    </section>
+    <p class="small">Only upload or share movies that you own or have permission to distribute. This page does not currently store or serve movie files.</p>
+  </main>
+  <footer>© CINEMAX · YOUR COLLECTION</footer>
+  <script>
+    const search = document.getElementById('search');
+    const genre = document.getElementById('genre');
+    search.addEventListener('input', () => {
+      document.querySelector('.empty').textContent =
+        'Connect cloud storage to add and browse your movie collection.';
+    });
+    genre.addEventListener('change', () => {});
+  </script>
+</body>
+</html>
